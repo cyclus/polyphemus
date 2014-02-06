@@ -34,7 +34,7 @@ curl --form status='{{\"status\":\"pending\",\"number\":{number},\"description\"
 """
 
 post_curl_template = r"""# polyphemus post_all callbacks
-if [ -z $_NMI_STEP_FAILED ]
+if [ -z \$_NMI_STEP_FAILED ]
 then
     curl --form status='{{\"status\":\"success\",\"number\":{number},\"description\":\"build and test completed successfully\"}}' {server_url}:{port}/batlabstatus
 else
